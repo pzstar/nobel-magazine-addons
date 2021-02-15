@@ -1,0 +1,98 @@
+.nma-elements{
+    background-image: url(../img/layout.png) !important;
+    background-repeat: no-repeat;
+    background-size: auto !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nma-block-one{
+    background-position: -20px -10px;
+}
+
+.nma-block-two{
+    background-position: -120px -6px;
+}
+
+.nma-block-three{
+    background-position: -20px -92px;
+}
+
+.nma-block-four{
+    background-position: -120px -92px;
+}
+
+.nma-block-five{
+    background-position: -20px -170px;
+}
+
+.nma-block-six{
+    background-position: -120px -170px;
+}
+
+.nma-block-seven{
+    background-position: -20px -252px;
+}
+
+.nma-block-eight {
+    background-position: -120px -252px;
+}
+
+.nma-slider-one {
+    background-position: -20px -333px;
+}
+
+.nma-carousel-one{
+    background-position: -120px -333px;
+}
+
+.nma-carousel-two{
+    background-position: -20px -410px;
+}
+
+.nma-carousel-three{
+    background-position: -120px -410px;
+}
+
+.nma-grid-one{
+    background-position: -20px -494px;
+}
+
+.nma-grid-two{
+    background-position: -120px -494px;
+}
+
+.nma-grid-three{
+    background-position: -20px -573px;
+}
+
+.nma-grid-four{
+    background-position: -120px -573px;
+}
+
+.nma-single-news-one{
+    background-position: -20px -653px;
+}
+
+.nma-single-news-two{
+    background-position: -120px -653px;
+}
+
+.nma-single-news-three{
+    background-position: -20px -733px;
+}
+
+.nma-elementor-pro-no #elementor-panel-category-pro-elements,
+.nma-elementor-pro-no #elementor-panel-category-theme-elements,
+.nma-elementor-pro-no #elementor-panel-category-woocommerce-elements,
+.nma-elementor-pro-no #elementor-panel-get-pro-elements,
+.nma-elementor-pro-no .elementor-control-dynamic-switcher,
+.nma-elementor-pro-no .elementor-control-section_custom_css_pro,
+.nma-elementor-pro-no .elementor-control-section_custom_attributes_pro,
+.nma-elementor-pro-no [data-tab="global"],
+.nma-elementor-pro-no .elementor-context-menu-list__group.elementor-context-menu-list__group-save{
+    display: none !important;
+}
