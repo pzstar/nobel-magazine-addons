@@ -1381,4 +1381,53 @@ h3.nma-post-title.nma-small-title{
     }
 }
 
-/*this is a test*/
+
+
+/*==================================================================================
+02/16/2021 Kishan Dangol css.
+==================================================================================*/
+
+/*Header style css*/
+
+.nobel-magazine-block-header.nma-style-1 {
+    padding: 10px 0;
+    border-top: 3px solid #333;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+.nobel-magazine-block-header.nma-style-2 {
+    position: relative;
+    margin-bottom: 20px;
+}
+.nobel-magazine-block-header.nma-style-2:before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    background: lightgreen;
+    width: 110px;
+    height: 5px;
+    z-index: -1;
+}
+
+.nobel-magazine-block-header.nma-style-2.nma-left:before {
+    left: 8px;
+}
+.nobel-magazine-block-header.nma-style-2.nma-center:before {
+    left: 50%;
+    transform: translateX(-40%);
+    -webkit-transform: translateX(-40%);
+}
+.nobel-magazine-block-header.nma-style-2.nma-right:before {
+    right: 8px;
+}
+
+/*Header alignment css*/ 
+.nobel-magazine-block-header.nma-left {
+    text-align: left;
+}
+.nobel-magazine-block-header.nma-center {
+    text-align: center;
+}
+.nobel-magazine-block-header.nma-right {
+    text-align: right;
+}
