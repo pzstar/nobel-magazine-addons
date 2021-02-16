@@ -645,11 +645,13 @@ class Block_Eight extends Widget_Base {
         if ($settings['header_title']) {
             ?>
             <h5 <?php echo $this->get_render_attribute_string('header_attr'); ?>>
+                <span>
                 <?php
                 echo $link_open;
                 echo $settings['header_title'];
                 echo $link_close;
                 ?>
+                </span>
             </h5>
             <?php
         }
