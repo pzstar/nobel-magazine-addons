@@ -69,7 +69,7 @@ class Group_Control_Header extends Group_Control_Base {
             'toggle' => true,
         ];
 
-        $fields['header_alignment'] = [
+        $fields['alignment'] = [
             'label' => __('Alignment', 'nobel-magazine-addons'),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
