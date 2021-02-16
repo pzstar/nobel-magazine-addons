@@ -1387,12 +1387,22 @@ h3.nma-post-title.nma-small-title{
 02/16/2021 Kishan Dangol css.
 ==================================================================================*/
 
-/*Header style css*/
+/*Header alignment css*/ 
+.nobel-magazine-block-header.nma-left {
+    text-align: left;
+}
+.nobel-magazine-block-header.nma-center {
+    text-align: center;
+}
+.nobel-magazine-block-header.nma-right {
+    text-align: right;
+}
 
+/*Header style css*/
 .nobel-magazine-block-header.nma-style-1 {
     padding: 10px 0;
-    border-top: 3px solid #333;
-    border-bottom: 1px solid #333;
+    border-top: 3px solid #000;
+    border-bottom: 1px solid #000;
     margin-bottom: 20px;
 }
 .nobel-magazine-block-header.nma-style-2 {
@@ -1403,12 +1413,12 @@ h3.nma-post-title.nma-small-title{
     content: '';
     position: absolute;
     bottom: 4px;
-    background: lightgreen;
+    background: #000;
     width: 110px;
     height: 5px;
     z-index: -1;
+    opacity: 0.4;
 }
-
 .nobel-magazine-block-header.nma-style-2.nma-left:before {
     left: 8px;
 }
@@ -1421,13 +1431,121 @@ h3.nma-post-title.nma-small-title{
     right: 8px;
 }
 
-/*Header alignment css*/ 
-.nobel-magazine-block-header.nma-left {
-    text-align: left;
+.nobel-magazine-block-header.nma-style-3 {
+    border-top: 4px solid #000;
+    margin-bottom: 30px;
 }
-.nobel-magazine-block-header.nma-center {
-    text-align: center;
+.nobel-magazine-block-header.nma-style-3 span {
+    background: #000;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1.2;
+    position: absolute;
+    top: -20px;
 }
-.nobel-magazine-block-header.nma-right {
-    text-align: right;
+.nobel-magazine-block-header.nma-style-3 span:before,
+.nobel-magazine-block-header.nma-style-3.nma-center span:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 10px 0 0px;
+    border-color: #000 transparent transparent transparent;
+    bottom: 0;
+}
+.nobel-magazine-block-header.nma-style-3.nma-left span:before {
+    right: -10px;
+}
+.nobel-magazine-block-header.nma-style-3.nma-right span {
+    right: 0;
+}
+.nobel-magazine-block-header.nma-style-3.nma-right span:before,
+.nobel-magazine-block-header.nma-style-3.nma-center span:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 9px 0;
+    border-color: transparent #000 transparent transparent;
+    bottom: 0;
+    left: -10px;
+}
+.nobel-magazine-block-header.nma-style-3.nma-center span:before {
+    right: -10px;
+}
+
+.nobel-magazine-block-header.nma-style-4 {
+    border-bottom: 2px solid #000;
+}
+.nobel-magazine-block-header.nma-style-4 span {
+    background: #000;
+    padding: 7px 15px;
+    display: inline-block;
+    margin-bottom: 2px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.nobel-magazine-block-header.nma-style-5 {
+    border-bottom: 3px solid #000;
+    position: relative;
+    margin-bottom: 30px;
+}
+.nobel-magazine-block-header.nma-style-5 span {
+    background: #000;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+}
+.nobel-magazine-block-header.nma-style-5 span:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #000000 transparent transparent transparent;
+    bottom: -10px;
+}
+.nobel-magazine-block-header.nma-style-5.nma-left span:before {
+    left: 8px;
+}
+.nobel-magazine-block-header.nma-style-5.nma-right span:before {
+    right: 8px;
+}
+.nobel-magazine-block-header.nma-style-5.nma-center span:before {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.nobel-magazine-block-header.nma-style-6 span {
+    background: #000;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 6px;
+    margin-right: 6px;
+    position: relative;
+}
+.nobel-magazine-block-header.nma-style-6 span:before,
+.nobel-magazine-block-header.nma-style-6 span:after {
+    position: absolute;
+    content: '';
+    background: #000;
+    width: 3px;
+    height: 100%;
+    top: 0;
+}
+.nobel-magazine-block-header.nma-style-6 span:before {
+    left: -6px;
+}
+.nobel-magazine-block-header.nma-style-6 span:after {
+    right: -6px;
 }
