@@ -40,32 +40,53 @@ class Group_Control_Header extends Group_Control_Base {
             'label' => __('Header Style', 'nobel-magazine-addons'),
             'type' => Controls_Manager::CHOOSE,
             'options' => [
-                'style-1' => [
+                'nma-style-1' => [
                     'title' => __('Style 1', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-left',
                 ],
-                'style-2' => [
+                'nma-style-2' => [
                     'title' => __('Style 2', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-center',
                 ],
-                'style-3' => [
+                'nma-style-3' => [
                     'title' => __('Style 3', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-right',
                 ],
-                'style-4' => [
+                'nma-style-4' => [
                     'title' => __('Style 4', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-left',
                 ],
-                'style-5' => [
+                'nma-style-5' => [
                     'title' => __('Style 5', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-center',
                 ],
-                'style-6' => [
+                'nma-style-6' => [
                     'title' => __('Style 6', 'nobel-magazine-addons'),
                     'icon' => 'fa fa-align-right',
                 ],
             ],
-            'default' => 'style-1',
+            'default' => 'nma-style-1',
+            'toggle' => true,
+        ];
+
+        $fields['header_alignment'] = [
+            'label' => __('Alignment', 'nobel-magazine-addons'),
+            'type' => Controls_Manager::CHOOSE,
+            'options' => [
+                'nma-left' => [
+                    'title' => __('Left', 'nobel-magazine-addons'),
+                    'icon' => 'fa fa-align-left',
+                ],
+                'nma-center' => [
+                    'title' => __('Center', 'nobel-magazine-addons'),
+                    'icon' => 'fa fa-align-center',
+                ],
+                'nma-right' => [
+                    'title' => __('Right', 'nobel-magazine-addons'),
+                    'icon' => 'fa fa-align-right',
+                ],
+            ],
+            'default' => 'nma-left',
             'toggle' => true,
         ];
 

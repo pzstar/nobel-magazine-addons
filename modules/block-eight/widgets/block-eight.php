@@ -627,7 +627,9 @@ class Block_Eight extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute('header_attr', 'class', [
-            'nobel-magazine-post-main-header',
+            'nobel-magazine-block-header',
+            $settings['header_style'],
+            $settings['header_alignment']
                 ]
         );
 
