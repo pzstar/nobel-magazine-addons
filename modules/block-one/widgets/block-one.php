@@ -140,6 +140,18 @@ class Block_One extends Widget_Base {
         ]);
 
         $this->add_control(
+                'featured_post_category', [
+            'label' => esc_html__('Post Category', 'nobel-magazine-addons'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => esc_html__('Yes', 'nobel-magazine-addons'),
+            'label_off' => esc_html__('No', 'nobel-magazine-addons'),
+            'return_value' => 'yes',
+            'separator' => 'before',
+            'default' => 'yes'
+                ]
+        );
+
+        $this->add_control(
                 'featured_post_author', [
             'label' => esc_html__('Post Author', 'nobel-magazine-addons'),
             'type' => Controls_Manager::SWITCHER,
@@ -274,6 +286,17 @@ class Block_One extends Widget_Base {
             'default' => 0,
             'description' => esc_html__('Leave blank or enter 0 to hide the excerpt', 'nobel-magazine-addons'),
         ]);
+
+        $this->add_control(
+                'listing_post_category', [
+            'label' => esc_html__('Post Category', 'nobel-magazine-addons'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => esc_html__('Yes', 'nobel-magazine-addons'),
+            'label_off' => esc_html__('No', 'nobel-magazine-addons'),
+            'return_value' => 'yes',
+            'separator' => 'before'
+                ]
+        );
 
         $this->add_control(
                 'listing_post_author', [
@@ -620,6 +643,7 @@ class Block_One extends Widget_Base {
                         $current_post_count = $post_query->current_post + 1;
                         $total_post_count = $post_query->post_count;
                         $image_size = ( $current_post_count <= $featured_post_count ) ? $settings['featured_post_image_size'] : $settings['list_post_image_size'];
+                        $display_category = ( $current_post_count <= $featured_post_count ) ? 'all' : false;
                         $title_class = ( $current_post_count <= $featured_post_count ) ? ' nma-big-title' : '';
                         $post_list_class = $current_post_count > $hide_after_post_count ? 'nma-tablet-hide' : '';
                         ?>
@@ -628,9 +652,15 @@ class Block_One extends Widget_Base {
                             <?php }; ?>
 
                             <div class="nma-post-list <?php echo esc_attr($post_list_class); ?>">
-                                <?php nobel_magazine_addons_image($image_size); ?>
+                                <?php nobel_magazine_addons_image($image_size, $display_category); ?>
 
                                 <div class="nma-post-content">
+
+                                    <?php
+                                    if ($current_post_count > $featured_post_count) {
+                                        nobel_magazine_addons_primary_category();
+                                    }
+                                    ?>
 
                                     <h3 class="nma-post-title<?php echo esc_attr($title_class); ?>"><a href="<?php the_permalink(); ?>"><?php echo esc_html(get_the_title()); ?></a></h3>
 
@@ -693,11 +723,11 @@ class Block_One extends Widget_Base {
             ?>
             <h5 <?php echo $this->get_render_attribute_string('header_attr'); ?>>
                 <span>
-                <?php
-                echo $link_open;
-                echo $settings['header_title'];
-                echo $link_close;
-                ?>
+                    <?php
+                    echo $link_open;
+                    echo $settings['header_title'];
+                    echo $link_close;
+                    ?>
                 </span>
             </h5>
             <?php

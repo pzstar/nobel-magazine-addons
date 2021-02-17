@@ -117,13 +117,18 @@ if (!function_exists('nobel_magazine_addons_get_altofimage')) {
 /** Get Image */
 if (!function_exists('nobel_magazine_addons_image')) {
 
-    function nobel_magazine_addons_image($image_size = 'full') {
+    function nobel_magazine_addons_image($image_size = 'full', $display_category = false) {
         echo '<div class="nma-post-thumb">';
         echo '<a href="' . esc_url(get_the_permalink()) . '">';
         echo '<div class="nma-post-thumb-container">';
         the_post_thumbnail($image_size);
         echo '</div>';
         echo '</a>';
+        if ($display_category == 'all') {
+            nobel_magazine_addons_all_category();
+        } elseif ($display_category == 'primary') {
+            nobel_magazine_addons_primary_category();
+        }
         echo '</div>';
     }
 
@@ -247,6 +252,77 @@ if (!function_exists('nobel_magazine_addons_get_tags')) {
         }
 
         return $tags;
+    }
+
+}
+
+if (!function_exists('nobel_magazine_addons_primary_category')) {
+
+    function nobel_magazine_addons_primary_category($class = "nma-primary-category") {
+        $post_categories = nobel_magazine_addons_get_category(get_the_ID());
+
+        if (!empty($post_categories)) {
+            $category_obj = $post_categories['primary_category'];
+            $category_link = get_category_link($category_obj->term_id);
+            echo '<div class="' . esc_attr($class) . '">';
+            echo '<a class="nma-category nma-category-' . esc_attr($category_obj->term_id) . '" href="' . esc_url($category_link) . '">' . esc_html($category_obj->name) . '</a>';
+            echo '</div>';
+        }
+    }
+
+}
+
+if (!function_exists('nobel_magazine_addons_all_category')) {
+
+    function nobel_magazine_addons_all_category() {
+        $post_categories = nobel_magazine_addons_get_category(get_the_ID(), 'category', true);
+
+        if (!empty($post_categories)) {
+            echo '<div class="nma-category-list">';
+            $category_ids = $post_categories['all_categories'];
+            foreach ($category_ids as $category_id) {
+                echo '<a class="nma-category nma-category-' . esc_attr($category_id) . '" href="' . esc_url(get_category_link($category_id)) . '">' . esc_html(get_cat_name($category_id)) . '</a>';
+            }
+            echo '</div>';
+        }
+    }
+
+}
+
+if (!function_exists('nobel_magazine_addons_get_category')) {
+
+    function nobel_magazine_addons_get_category($post_id, $term = 'category', $return_all_categories = false) {
+        $return = array();
+
+        if (class_exists('WPSEO_Primary_Term')) {
+            // Show Primary category by Yoast if it is enabled & set
+            $wpseo_primary_term = new WPSEO_Primary_Term($term, $post_id);
+            $primary_term = get_term($wpseo_primary_term->get_primary_term());
+
+            if (!is_wp_error($primary_term)) {
+                $return['primary_category'] = $primary_term;
+            }
+        }
+
+        if (empty($return['primary_category']) || $return_all_categories) {
+            $categories_list = get_the_terms($post_id, $term);
+
+            if (empty($return['primary_category']) && !empty($categories_list)) {
+                $return['primary_category'] = $categories_list[0];  //get the first category
+            }
+
+            if ($return_all_categories) {
+                $return['all_categories'] = array();
+
+                if (!empty($categories_list)) {
+                    foreach ($categories_list as &$category) {
+                        $return['all_categories'][] = $category->term_id;
+                    }
+                }
+            }
+        }
+
+        return $return;
     }
 
 }
