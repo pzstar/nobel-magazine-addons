@@ -643,21 +643,23 @@ class Block_One extends Widget_Base {
                         $current_post_count = $post_query->current_post + 1;
                         $total_post_count = $post_query->post_count;
                         $image_size = ( $current_post_count <= $featured_post_count ) ? $settings['featured_post_image_size'] : $settings['list_post_image_size'];
-                        $display_category = ( $current_post_count <= $featured_post_count ) ? 'all' : false;
                         $title_class = ( $current_post_count <= $featured_post_count ) ? ' nma-big-title' : '';
                         $post_list_class = $current_post_count > $hide_after_post_count ? 'nma-tablet-hide' : '';
+                        $post_category = $current_post_count <= $featured_post_count ? $settings['featured_post_category'] : $settings['listing_post_category'];
+                        $display_category = $post_category == 'yes' ? true : false;
+                        $featured_category = ($display_category && $current_post_count <= $featured_post_count) ? 'all': false;
                         ?>
                         <?php if ($current_post_count == 1) { ?>
                             <div class="nma-left-block">
                             <?php }; ?>
 
                             <div class="nma-post-list <?php echo esc_attr($post_list_class); ?>">
-                                <?php nobel_magazine_addons_image($image_size, $display_category); ?>
+                                <?php nobel_magazine_addons_image($image_size, $featured_category); ?>
 
                                 <div class="nma-post-content">
 
                                     <?php
-                                    if ($current_post_count > $featured_post_count) {
+                                    if (($current_post_count > $featured_post_count) && $display_category) {
                                         nobel_magazine_addons_primary_category();
                                     }
                                     ?>
