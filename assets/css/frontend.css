@@ -279,7 +279,7 @@ img{
 
 h3.nma-post-title{
     font-size: 1rem;
-    margin: 0 0 15px;
+    margin: 0 0 20px;
 }
 
 h3.nma-post-title:last-child{
@@ -292,15 +292,31 @@ h3.nma-post-title.nma-large-title{
 
 h3.nma-post-title.nma-big-title{
     font-size: 1.4rem;
+    margin-bottom: 20px;
 }
 
 h3.nma-post-title.nma-small-title{
     font-size: 0.8rem;
 }
 
-.nma-post-meta{
-    font-size: 0.8rem;
+.nma-post-title a {
+    position: relative;
+}
+.nma-post-title a:before {
+    position: absolute;
+    content: '';
+    background-color: #000;
+    height: 2px;
+    width: 20px;
+    bottom: -5px;
+    left: 0;
+    opacity: 0.5;
+}
+
+.nma-post-meta {
+    font-size: 0.88rem;
     opacity: 0.8;
+    text-transform: capitalize;
 }
 
 .nma-post-meta span{
@@ -311,10 +327,9 @@ h3.nma-post-title.nma-small-title{
     margin-right: 0;
 }
 
-.nma-post-meta span i{
+.nma-post-meta span svg {
     margin-right: 5px;
-    font-size: 0.85em;
-    font-weight: bold;
+    width: 0.80em;
 }
 
 .nma-post-thumb > a{
@@ -323,12 +338,34 @@ h3.nma-post-title.nma-small-title{
     overflow: hidden;
 }
 
-.nma-post-thumb-container{
+.nma-post-thumb-container {
     padding-bottom: 100%;
     background: #F6F6F6;
+    position: relative;
+}
+.nma-post-thumb-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.nma-post-thumb-container:hover:after {
+    -webkit-box-shadow: 0 0 10px 300px rgb(0 0 0 / 50%) inset;
+    -moz-box-shadow: 0 0 10px 300px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 0 10px 300px rgb(0 0 0 / 50%) inset;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 
-.nma-post-thumb-container img{
+.nma-post-thumb-container img {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -353,23 +390,69 @@ h3.nma-post-title.nma-small-title{
 }
 .nma-post-thumb .nma-category-list {
     position: absolute;
-    top: 0;
     left: 20px;
     transition: all ease 0.5s;
     -webkit-transition: all ease 0.5s;
+    bottom: 15px;
 }
-.nma-post-thumb:hover .nma-category-list {
-    left: 16px;
-}
-.nma-post-thumb .nma-category {
+.nma-post-thumb .nma-category,
+.nma-category {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 6px 15px;
     font-size: 12px;
+    background: #fff;
+    color: #000;
+    line-height: 1.3;
+    margin-right: 5px;
+    border-radius: 30px;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 5px;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+}
+.nma-category {
+    background: transparent;
+    border: none;
+    padding: 0 15px 0 15px;
+    margin-bottom: 10px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+}
+.nma-category:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #000;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+}
+.nma-category:hover {
+    color: red;
+}
+.nma-category:hover:before {
+    background-color: red;
+}
+.nma-post-thumb .nma-category:before {
+    left: 10px;
+}
+.nma-post-thumb .nma-category:hover {
     background: #000;
     color: #fff;
-    line-height: 1.5;
-    margin-right: 5px;
 }
+.nma-post-thumb .nma-category:hover:before {
+    background: #fff;
+}
+
+
+
 
 /* Slider */
 .nma-post-slider-one .nma-block-header{
@@ -1573,3 +1656,4 @@ h3.nma-post-title.nma-small-title{
 .nobel-magazine-block-header.nma-style-6 span:after {
     right: -6px;
 }
+/*test*/
